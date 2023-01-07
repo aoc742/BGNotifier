@@ -1,13 +1,18 @@
 #########################################################################
 # Name: BGNotifier                                                      #
-# Desc: Notifies you if a Classic/BCC WoW Battleground Queue has popped #
-# Author: Ninthwalker                                                   #
-# Instructions: https://github.com/ninthwalker/BGNotifier               #
-# Date: 16JUN2021                                                       #
-# Version: 1.3                                                          #
+# Desc: Notifies you if a WoW Queue has popped                          #
+# Author: aoc742, Ninthwalker                                           #
+# Instructions: https://github.com/aoc742/BGNotifier                    #
+# Date: 6Jan2023                                                        #
+# Version: 1.4                                                          #
 #########################################################################
 
 ############################## CHANGE LOG ###############################
+## 1.4                                                                  #
+# Added support for Retail                                              #
+# - Battlegrounds (Rated and Random)                                    #
+# - Arenas (2v2, 3v3, and Skirmishes)                                   #
+# - Solo Shuffle                                                        #
 ## 1.3                                                                  #
 # Burning Crusade Classic Support                                       #
 # Added Eye of the Storm Battleground                                   #
@@ -112,9 +117,9 @@ $path = $env:temp
 
 # Amount of seconds to wait before scanning for a battleground Queue window.
 # Note: this script uses hardly any resources and is very quick at the screenshot/OCR process.
-# Keep in mind you have 1.5min to accept the Queue. And this script needs to see the popup, and send the notification.
-# Then you have to get off the toilet and make it back to your computer in time. Food for thought.
-$delay = 20
+# If this script seems to intensive for your computer, you can try increasing this delay.
+# Arenas and Solo Shuffles are the shortest queues, providing only 28 seconds to accept.
+$delay = 1
 
 # Option to stop BGNotifier once a BG Queue has popped. "Yes" to stop the program, or "No" to keep it running.
 # Default is 'Yes', stop scanning after it detects a BG Queue pop.

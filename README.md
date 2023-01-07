@@ -1,24 +1,35 @@
 <p align="center">
 <img align="center" src="https://raw.githubusercontent.com/ninthwalker/BGNotifier/master/screenshots/BGNotifier-logo.png" width="250"></p>
-<img src="https://raw.githubusercontent.com/ninthwalker/BGNotifier/master/screenshots/mobile2.png"> 
-Sends a message when your World of Warcraft Battleground Queue has popped.  
-Currently supports Discord, Telegram, Text Messages, Alexa 'Notify Me' Skill, Home Assistant scripts and Pushover (Thanks @pattont). If you want another notification type, let me know.    
-  
-  
+
+# BGNotifier
+Sends a message when your World of Warcraft Battleground, Arena, or Solo Shuffle Queue has popped.  
+Currently supports the following message types:
+* Text Message
+* Discord
+* Telegram
+* Alexa 'Notify Me' Skill
+* Home Assistant scripts
+* Pushover (Thanks @pattont)
+
+This repository is a fork from @ninthwalker's BGNotifier (https://github.com/ninthwalker/BGNotifier) and has been updated for use with the Retail version of WoW to support
+notifications for Battlegrounds, Arenas, or Solo Shuffles.
+
 Note: This does not interact with the game at any level or in any way.  
-Note2: This is only for Classic/TBC for now. While it is easily modified to work for Retail, the queue's there are not that bad.
+
 Default settings should work for most people. Just set up at least one notification app and you are good to go!  
 
-## Details/Requirements
-1. Windows 10
-2. Powershell 3.0+ (Comes with WIN10)
-3. .Net Framework 3.5+ (Usually already on Windows 10 as well)
-4. A World of Warcraft Subscription. (You have to put this on your WIN 10 computer yourself)
-5. Discord, Telegram, Pushover, Cell Phone, or Alexa Device. (Other apps/notifications possible in the future if requested)  
+## Requirements
+1. Windows 10/11
+2. Powershell 3.0+ (Comes with Windows)
+3. .Net Framework 3.5+ (Usually already on Windows 10/11 as well)
+4. World of Warcraft
+5. One or more notification apps: Discord, Telegram, Pushover, Cell Phone, or Alexa Device
 
 ## How it works
-It's super simple. It takes a screenshot of a specific area of your monitor (Where the BG Queue window pops up).  
-It then uses Windows 10 Built-in OCR (Optical Character Recognition) to read the text in that screenshot to see if a BG has popped. If it has, it sends you a message on Discord. Too easy!
+It's super simple. This program takes a screenshot of a specific area of your monitor (Where the BG Queue window pops up).  
+It then uses Windows 10/11 Built-in OCR (Optical Character Recognition) to read the text in that screenshot to see if a BG has popped.
+
+For example, if the screenshot contains the text "Solo Shuffle: All arenas", then you will receive a notification!
 
 ## How to use  
 Prereq's: WoW Must be running in the foreground of your monitor.  
@@ -33,11 +44,11 @@ After clicking the shortcut (Download Option One) or Lauching the script from th
 ## Download Options  
 
 **Option One**  
- (Recommended - Easiest to use)
+(Recommended - Easiest to use)
 
-1. Click the 'Clone or Download' link on this page. Then select 'Download Zip'  
-2 . You may need to 'unblock' the zip file downloaded. This is normal behavior for Microsoft Windows to do for files downloaded from the internet.  
-`Right click > Properties > Check 'Unblock'`
+1. Click the 'Code' link on this page. Then select 'Download Zip'  
+2. You may need to 'unblock' the zip file downloaded. This is normal behavior for Microsoft Windows to do for files downloaded from the internet.  
+`Right click > Properties > Check 'Unblock'`  
 3. Extract the contents of the ZIP file. You only need the 'BGNotifier.lnk' shortcut, and the BGNotifier.ps1 files. Make sure these 2 files are kept in the same directory wherever you move them to.  
 4. Once Setup is completed, you can double click the shortcut to run the BG Notifier script.  
 

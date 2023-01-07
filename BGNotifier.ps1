@@ -448,8 +448,15 @@ function BGNotifier {
             }
         }     
     }
-    Until (($bgAlert -like "*enter Alterac*") -or ($bgAlert -like "*enter Warsong*") -or ($bgAlert -like "*enter Arathi*") -or ($bgAlert -like "*enter Eye*") -or ($disconnected))
-
+    Until (($bgAlert -like "*A group has been*") -or `
+          ($bgAlert -like "*enter Alterac*") -or `
+          ($bgAlert -like "*Your Battleground is ready*") -or `
+          ($bgAlert -like "*Arena*") -or `
+          ($bgAlert -like "*Brawl*") -or `
+          ($bgAlert -like "*enter Warsong*") -or `
+          ($bgAlert -like "*Arathi*") -or `
+          ($bgAlert -like "*enter Eye*") -or `
+          ($disconnected))
     if ($script:cancelLoop) {
         Return
     }
@@ -461,11 +468,32 @@ function BGNotifier {
     elseif ($bgAlert -like "*enter Warsong*") {
         $msg = "Your Warsong Gulch Queue has Popped!"
     }
-    elseif ($bgAlert -like "*enter Arathi*") {
+    elseif ($bgAlert -like "*Arathi Basin Comp Stomp*") {
+        $msg = "Your Arathi Basin Comp Stomp Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Arathi*") {
         $msg = "Your Arathi Basin Queue has Popped!"
     }
     elseif ($bgAlert -like "*enter Eye*") {
         $msg = "Your Eye of the Storm Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Solo Shuffle*"){
+        $msg = "Your Solo Shuffle Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Random Battleground*") {
+        $msg = "Your Random Battleground Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Rated Battleground*") {
+        $msg = "Your Rated Battleground Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Your Battleground is ready*"){
+        $msg = "Your Battleground Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Brawl*"){
+        $msg = "Your Brawl Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Arena*"){
+        $msg = "Your Arena Queue has Popped!"
     }
     elseif ($bgAlert -like "*disconnected*") {
         $msg = "You've been Disconnected!"

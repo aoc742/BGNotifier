@@ -450,6 +450,7 @@ function BGNotifier {
     }
     Until (($bgAlert -like "*A group has been*") -or `
           ($bgAlert -like "*enter Alterac*") -or `
+          ($bgAlert -like "*SafeQueue expires in*") -or `
           ($bgAlert -like "*Your Battleground is ready*") -or `
           ($bgAlert -like "*Arena*") -or `
           ($bgAlert -like "*Brawl*") -or `

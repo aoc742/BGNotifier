@@ -125,6 +125,11 @@ $delay = 1
 # Default is 'Yes', stop scanning after it detects a BG Queue pop.
 $stopOnQueue = "Yes"
 
+#Option to notify if you are about to be logged out (AFK for 30 min)
+#Works with default coordinates.
+#If you are using your own coordinates make sure that the image contains the "xx Seconds until logout" dialog
+$notifyOnLogout= $True
+
 # Option to notify if you get disconnected. Looks for the 'disconnected' message on the login screen.
 # You usually have a couple minutes to login back in and still be in the BG Queue.
 # You will need to restart the BG Notifier App if you set this to True and a disconnect occurs.
@@ -446,6 +451,11 @@ function BGNotifier {
             if ($bgAlert -like "*disconnected*") {
                 $disconnected = $True
             }
+            if ($notifyOnLogout) {
+                if ($bgAlert -like "*logout*") {
+                    $disconnected = $True
+                }
+            }
         }     
     }
     Until (($bgAlert -like "*A group has been*") -or `
@@ -496,7 +506,7 @@ function BGNotifier {
     elseif ($bgAlert -like "*Arena*"){
         $msg = "Your Arena Queue has Popped!"
     }
-    elseif ($bgAlert -like "*disconnected*") {
+    elseif ($disconnected) {
         $msg = "You've been Disconnected!"
     }
 
@@ -564,7 +574,7 @@ function BGNotifier {
         Invoke-RestMethod -Uri "$hassURL/api/services/script/toggle" -Method POST -Headers $hassHeaders -Body $hassBody
     }
     
-    if ($bgAlert -like "*disconnected*") {
+    if ($disconnected) {
         $label_status.ForeColor = "#FFFF00"
         $label_status.text = "You've been Disconnected!"
         $label_status.Refresh()

@@ -467,6 +467,7 @@ function BGNotifier {
           ($bgAlert -like "*enter Warsong*") -or `
           ($bgAlert -like "*Arathi*") -or `
           ($bgAlert -like "*enter Eye*") -or `
+          ($bgAlert -like "*Battleground*") -or `
           ($disconnected))
     if ($script:cancelLoop) {
         Return
@@ -494,6 +495,9 @@ function BGNotifier {
     elseif ($bgAlert -like "*Random Battleground*") {
         $msg = "Your Random Battleground Queue has Popped!"
     }
+    elseif ($bgAlert -like "*Random Epic Battleground*") {
+        $msg = "Your Random Epic Battleground Queue has Popped!"
+    }
     elseif ($bgAlert -like "*Rated Battleground*") {
         $msg = "Your Rated Battleground Queue has Popped!"
     }
@@ -505,6 +509,9 @@ function BGNotifier {
     }
     elseif ($bgAlert -like "*Arena*"){
         $msg = "Your Arena Queue has Popped!"
+    }
+    elseif ($bgAlert -like "*Battleground*") {
+        $msg = "Your Battleground Queue has Popped!"
     }
     elseif ($disconnected) {
         $msg = "You've been Disconnected!"
